@@ -1,4 +1,6 @@
 module com.example.librarybook {
+
+    requires commons.csv;
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
