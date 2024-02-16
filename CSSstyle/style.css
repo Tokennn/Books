@@ -2,3 +2,7 @@
     -fx-background-image: url('../Images/picture.jpg');
     -fx-background-size: cover;
 }
+
+.text-field {
+    -fx-text-fill: white;
+}

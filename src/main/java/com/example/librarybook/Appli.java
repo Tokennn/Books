@@ -5,8 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.control.TextField;
+
 
 import java.util.concurrent.ConcurrentMap;
 
@@ -27,13 +31,19 @@ public class Appli extends Application {
     @FXML
     private Button reviseButton;
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("livre.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Library");
+        primaryStage.setTitle("Books");
+
+        Image logoImage = new Image(getClass().getResourceAsStream("logo.png"));
+
+
         primaryStage.show();
     }
     public static void main(String[] args) {
