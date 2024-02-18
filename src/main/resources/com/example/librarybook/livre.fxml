@@ -7,18 +7,34 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="318.0" prefWidth="526.0" stylesheets="@../../../../../CSSstyle/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarybook.Appli">
 
           <children>
               <TextField fx:id="searchBar" layoutX="149.0" layoutY="83.0" prefHeight="26.0" prefWidth="232.0" style="-fx-background-color: black;" text="" />
-              <Button fx:id="updateButton" layoutX="13.0" layoutY="96.0" mnemonicParsing="false" style="-fx-background-color: ECB159;" text="Update" />
-              <Button fx:id="addButton" layoutX="7.0" layoutY="56.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: B67352;" text="Add book" />
-              <Button fx:id="clearButton" layoutX="3.0" layoutY="135.0" mnemonicParsing="false" style="-fx-background-color: B67352;" text="Erase book" />
-              <Button fx:id="deleteButton" layoutX="1.0" layoutY="204.0" mnemonicParsing="false" style="-fx-background-color: B67352;" text="Delete book" />
+              <Button fx:id="updateButton" layoutX="323.0" layoutY="183.0" mnemonicParsing="false" style="-fx-background-color: ECB159;" text="Update">
+         <font>
+            <Font name="Rockwell Bold Italic" size="15.0" />
+         </font></Button>
+              <Button fx:id="addButton" layoutX="70.0" layoutY="122.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="97.0" style="-fx-background-color: B67352;" text="Add book">
+         <font>
+            <Font name="Rockwell Bold Italic" size="15.0" />
+         </font></Button>
+              <Button fx:id="clearButton" layoutX="381.0" layoutY="122.0" mnemonicParsing="false" style="-fx-background-color: B67352;" text="Erase book">
+         <font>
+            <Font name="Rockwell Bold Italic" size="15.0" />
+         </font></Button>
+              <Button fx:id="deleteButton" layoutX="223.0" layoutY="122.0" mnemonicParsing="false" style="-fx-background-color: B67352;" text="Delete book">
+         <font>
+            <Font name="Rockwell Bold Italic" size="15.0" />
+         </font></Button>
               <ComboBox fx:id="filterComboBox" layoutX="406.0" layoutY="83.0" promptText="Filter by..." style="-fx-background-color: ECB159;" />
-              <TableView fx:id="livresTable" layoutX="2.0" layoutY="230.0" prefHeight="63.0" prefWidth="527.0" />
-              <Button fx:id="reviseButton" layoutX="15.0" layoutY="170.0" mnemonicParsing="false" style="-fx-background-color: ECB159;" text="Revise" />
+              <TableView fx:id="livresTable" layoutX="2.0" layoutY="237.0" prefHeight="56.0" prefWidth="527.0" style="-fx-background-color: grey;" />
+              <Button fx:id="reviseButton" layoutX="167.0" layoutY="183.0" mnemonicParsing="false" style="-fx-background-color: ECB159;" text="Revise">
+         <font>
+            <Font name="Rockwell Bold Italic" size="15.0" />
+         </font></Button>
       <ImageView fitHeight="48.0" fitWidth="83.0" layoutX="241.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@bouks.jpg" />

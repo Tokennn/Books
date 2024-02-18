@@ -40,10 +40,8 @@ public class Appli extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Books");
-
-        Image logoImage = new Image(getClass().getResourceAsStream("logo.png"));
-
-
+        Csv csv = new Csv();
+        System.out.println(csv);
         primaryStage.show();
     }
     public static void main(String[] args) {

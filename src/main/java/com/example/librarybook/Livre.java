@@ -99,7 +99,7 @@ public class Livre {
     // Méthode pour écrire les données d'un livre dans un fichier CSV
     public static void ecrireLivresCSV(List<Livre> livres, String nomFichier) {
         try (CSVPrinter printer = new CSVPrinter(new FileWriter(nomFichier), CSVFormat.DEFAULT
-                .withHeader("Titre", "Auteurs", "Genre", "Année de sortie", "Nombre de mots",
+                .withHeader("Titre", "Auteurs", "Genre", "Année de sortie", "Nombre de pages",
                         "Disponible sur achat", "Critiques", "Statut de lecture"))) {
             for (Livre livre : livres) {
                 printer.printRecord(livre.getTitre(),
