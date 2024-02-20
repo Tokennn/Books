@@ -1,4 +1,4 @@
-![Books](Books.jpg)
+![Books](bouks.jpg)
 
 
 This project is aimed at creating a Java application for managing books. Below are the key features and functionalities along with a guide on how to use the application effectively : 😉
