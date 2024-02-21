@@ -31,6 +31,12 @@ public class Livre {
         this.statutLecture = statutLecture;
     }
 
+    public Livre(String titre, List<String> split, String genre, int anneeSortie, boolean disponibleSurAchat, List<String> split1) {
+    }
+
+    public <E> Livre(String titre, List<E> split, String genre, int anneeSortie, boolean disponibleSurAchat, List<E> split1, String statutLecture) {
+    }
+
     // Méthodes getters et setters
     public String getTitre() {
         return titre;

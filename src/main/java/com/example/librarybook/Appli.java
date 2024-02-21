@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -15,7 +17,10 @@ public class Appli extends Application {
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         afficherMenu(); // Charge la page de menu lors du démarrage de l'application
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("bouks.jpg")));
     }
+
+
 
     // Méthode pour charger et afficher la page de menu
     public void afficherMenu() throws IOException {
@@ -63,5 +68,9 @@ public class Appli extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public Stage getPrimaryStage() {
+        return null;
     }
 }
