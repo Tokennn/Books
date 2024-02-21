@@ -19,7 +19,7 @@ public class Livre {
     private List<String> critiques;
     private String statutLecture;
 
-    // Constructeur
+
     public Livre(String titre, List<String> auteurs, String genre, int anneeSortie, int nombreMots, boolean disponibleSurAchat, List<String> critiques, String statutLecture) {
         this.titre = titre;
         this.auteurs = auteurs;
@@ -37,7 +37,13 @@ public class Livre {
     public <E> Livre(String titre, List<E> split, String genre, int anneeSortie, boolean disponibleSurAchat, List<E> split1, String statutLecture) {
     }
 
-    // Méthodes getters et setters
+    public Livre(String datum, String datum1, String datum2, String datum3, String datum4, String datum5) {
+    }
+
+    public Livre(String titre, String auteurs, String genre, String anneeSortie, String disponibleSurAchat, String critiques, String statutLecture) {
+    }
+
+
     public String getTitre() {
         return titre;
     }
@@ -102,7 +108,6 @@ public class Livre {
         this.statutLecture = statutLecture;
     }
 
-    // Méthode pour écrire les données d'un livre dans un fichier CSV
     public static void ecrireLivresCSV(List<Livre> livres, String nomFichier) {
         try (CSVPrinter printer = new CSVPrinter(new FileWriter(nomFichier), CSVFormat.DEFAULT
                 .withHeader("Titre", "Auteurs", "Genre", "Année de sortie", "Nombre de pages",
@@ -122,7 +127,6 @@ public class Livre {
         }
     }
 
-    // Méthode pour lire les données d'un fichier CSV et les charger en tant qu'objets Livre
     public static List<Livre> lireLivresCSV(String nomFichier) {
         List<Livre> livres = new ArrayList<>();
         try (Reader reader = new FileReader(nomFichier);
@@ -148,7 +152,6 @@ public class Livre {
         return livres;
     }
 
-    // Méthodes CRUD
     public static void ajouterLivre(Livre livre, List<Livre> listeLivres) {
         listeLivres.add(livre);
     }
@@ -166,5 +169,9 @@ public class Livre {
 
     public static void effacerLivres(List<Livre> listeLivres) {
         listeLivres.clear();
+    }
+
+    public boolean toCSVString() {
+        return false;
     }
 }

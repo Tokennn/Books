@@ -16,19 +16,18 @@ public class Appli extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        afficherMenu(); // Charge la page de menu lors du démarrage de l'application
+        afficherMenu();
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("bouks.jpg")));
     }
 
 
 
-    // Méthode pour charger et afficher la page de menu
     public void afficherMenu() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("livre.fxml"));
         Parent root = fxmlLoader.load();
 
         menuController = fxmlLoader.getController();
-        menuController.setApplication(this); // Passer l'instance de l'application à MenuController
+        menuController.setApplication(this);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
@@ -57,13 +56,13 @@ public class Appli extends Application {
         afficherPage("Updatebbouton.fxml");
     }
 
-    // Méthode générique pour charger et afficher une page FXML
     public void afficherPage(String fxmlFileName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {

@@ -1,15 +1,19 @@
 package com.example.librarybook;
 
-import com.example.librarybook.Livre;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 public class AjouterLivreController {
+
     @FXML
     private TextField titreField;
     @FXML
@@ -25,11 +29,29 @@ public class AjouterLivreController {
     @FXML
     private TextField statutLectureField;
 
-    private List<Livre> listeLivres;
+    @FXML
+    private TableView<Livre> livreTable;
 
-    public void setListeLivres(List<Livre> listeLivres) {
-        this.listeLivres = listeLivres;
-    }
+    @FXML
+    private TableColumn<Livre, String> titreColumn;
+
+    @FXML
+    private TableColumn<Livre, String> auteursColumn;
+
+    @FXML
+    private TableColumn<Livre, String> genreColumn;
+
+    @FXML
+    private TableColumn<Livre, String> anneeSortieColumn;
+
+    @FXML
+    private TableColumn<Livre, String> disponibleSurAchatColumn;
+
+    @FXML
+    private TableColumn<Livre, String> critiquesColumn;
+
+    private ObservableList<Livre> livres = FXCollections.observableArrayList();
+
 
     @FXML
     private void ajouterLivre() {
@@ -39,16 +61,26 @@ public class AjouterLivreController {
         String anneeSortie = anneeSortieField.getText();
         String disponibleSurAchat = disponibleSurAchatField.getText();
         String critiques = critiquesField.getText();
+        String statutLecture = statutLectureField.getText();
 
-        // Ajouter le code pour écrire ces données dans votre fichier CSV
+
+        Livre livre = new Livre(titre, auteurs, genre, anneeSortie, disponibleSurAchat, critiques, statutLecture);
+
+
+        livres.add(livre);
+
+
+        livreTable.setItems(livres);
+
         try {
             PrintWriter writer = new PrintWriter(new FileWriter("/Users/quentincontreau/developpement/LibraryBook/src/main/java/com/example/librarybook/bbouks.csv", true));
-            writer.println(titre + "," + auteurs + "," + genre + "," + anneeSortie + "," + disponibleSurAchat + "," + critiques);
+            writer.println(livre.toCSVString());
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
-            // Gérer les erreurs d'écriture dans le fichier CSV
+
         }
+        effacerChamps();
     }
 
     // Méthode pour effacer les champs après l'ajout

@@ -9,26 +9,26 @@ public class Csv {
     public Csv() {
 
         File csvFile = new File("/Users/quentincontreau/developpement/LibraryBook/src/main/resources/com/example/librarybook/bbouks.csv"); // Nom du fichier CSV
-        BufferedReader reader = null; // Déclaration du BufferedReader
+        BufferedReader reader = null;
         String line = "";
-        System.out.println(csvFile); // Affichage des noms des colonnes
+        System.out.println(csvFile);
 
         try {
-            reader = new BufferedReader(new FileReader(csvFile)); // Initialisation du BufferedReader avec le fichier CSV
-            while ((line = reader.readLine()) != null) { // Lecture des lignes du fichier CSV
-                String[] row = line.split(","); // Séparation des valeurs de la ligne
-                for (String index : row) // Parcours des valeurs de la ligne
-                    System.out.print(index + " "); // Affichage de chaque valeur
-                System.out.println(); // Saut de ligne après chaque ligne du fichier
+            reader = new BufferedReader(new FileReader(csvFile));
+            while ((line = reader.readLine()) != null) {
+                String[] row = line.split(",");
+                for (String index : row)
+                    System.out.print(index + " ");
+                System.out.println();
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Gestion des exceptions d'entrée/sortie
+            e.printStackTrace();
         } finally {
             if (reader != null) {
                 try {
-                    reader.close(); // Fermeture du BufferedReader
+                    reader.close();
                 } catch (IOException e) {
-                    e.printStackTrace(); // Gestion des exceptions d'entrée/sortie lors de la fermeture du BufferedReader
+                    e.printStackTrace();
                 }
             }
         }
