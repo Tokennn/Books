@@ -62,8 +62,7 @@ Organize books on the virtual bookshelf by dragging and dropping them into desir
 
 # ⚠️ Note 
 
-Ensure JavaFX is properly configured to run the application.
-The CSV file serves as a data source for book information and should be accessible for read and write operations.
-By following this guide, users can efficiently manage their book collection, track reading progress, and explore new titles with ease using the Book Management Application.
+Make sure that JavaFX is correctly configured to run the application, as in my case I had accounting problems with my operating system when I launched my application... The CSV file serves as a data source for book information and must be accessible for read and write operations. By following this guide, users can efficiently manage their book collection, track the progress of their reading and discover new titles with ease, thanks to the book management application.
+
 
 
