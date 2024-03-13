@@ -23,7 +23,7 @@
       <TextField fx:id="critiquesField" layoutX="14.0" layoutY="315.0" prefHeight="22.0" prefWidth="124.0" promptText="Critic" style="-fx-background-color: black;" text="" />
       <Button layoutX="42.0" layoutY="22.0" mnemonicParsing="false" onAction="#ajouterLivre" style="-fx-background-color: black; -fx-text-fill: white;" text="Add" />
 
-      <TableView fx:id="livresTable" layoutX="147.0" layoutY="81.0" prefHeight="200.0" prefWidth="375.0">
+      <TableView fx:id="livreTable" layoutX="147.0" layoutY="81.0" prefHeight="200.0" prefWidth="375.0">
          <columns>
             <TableColumn fx:id="titreColumn" prefWidth="28.0" text="Title" />
             <TableColumn fx:id="auteursColumn" prefWidth="52.0" text="Authors" />

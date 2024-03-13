@@ -1,16 +1,18 @@
 package com.example.librarybook;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
 
 public class AjouterLivreController {
 
@@ -26,8 +28,6 @@ public class AjouterLivreController {
     private TextField disponibleSurAchatField;
     @FXML
     private TextField critiquesField;
-    @FXML
-    private TextField statutLectureField;
 
     @FXML
     private TableView<Livre> livreTable;
@@ -36,61 +36,68 @@ public class AjouterLivreController {
     private TableColumn<Livre, String> titreColumn;
 
     @FXML
-    private TableColumn<Livre, String> auteursColumn;
+    private TableColumn<Livre, List<String>> auteursColumn;
 
     @FXML
     private TableColumn<Livre, String> genreColumn;
 
     @FXML
-    private TableColumn<Livre, String> anneeSortieColumn;
+    private TableColumn<Livre, Integer> anneeSortieColumn;
 
     @FXML
-    private TableColumn<Livre, String> disponibleSurAchatColumn;
+    private TableColumn<Livre, Boolean> disponibleSurAchatColumn;
 
     @FXML
-    private TableColumn<Livre, String> critiquesColumn;
+    private TableColumn<Livre, List<String>> critiquesColumn;
 
     private ObservableList<Livre> livres = FXCollections.observableArrayList();
 
+    @FXML
+    private void initialize() {
+        titreColumn.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        auteursColumn.setCellValueFactory(new PropertyValueFactory<>("auteurs"));
+        genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        anneeSortieColumn.setCellValueFactory(new PropertyValueFactory<>("anneeSortie"));
+        disponibleSurAchatColumn.setCellValueFactory(new PropertyValueFactory<>("disponibleSurAchat"));
+        critiquesColumn.setCellValueFactory(new PropertyValueFactory<>("critiques"));
+    }
 
     @FXML
     private void ajouterLivre() {
         String titre = titreField.getText();
         String auteurs = auteursField.getText();
+
         String genre = genreField.getText();
-        String anneeSortie = anneeSortieField.getText();
-        String disponibleSurAchat = disponibleSurAchatField.getText();
+        int anneeSortie = Integer.parseInt(anneeSortieField.getText());
+
+        boolean disponibleSurAchat;
+        try {
+            disponibleSurAchat = Boolean.parseBoolean(disponibleSurAchatField.getText());
+        } catch (Exception e) {
+            System.out.println("Erreur : la valeur de disponibleSurAchat doit être true ou false.");
+            return;
+        }
+
         String critiques = critiquesField.getText();
-        String statutLecture = statutLectureField.getText();
 
+        List<String> listeAuteurs = Arrays.asList(auteurs.split(","));
 
-        Livre livre = new Livre(titre, auteurs, genre, anneeSortie, disponibleSurAchat, critiques, statutLecture);
+        List<String> listeCritiques = Arrays.asList(critiques.split(","));
 
+        Livre livre = new Livre(titre, listeAuteurs, genre, anneeSortie, disponibleSurAchat, listeCritiques, "Non lu");
 
         livres.add(livre);
-
-
         livreTable.setItems(livres);
 
-        try {
-            PrintWriter writer = new PrintWriter(new FileWriter("/Users/quentincontreau/developpement/LibraryBook/src/main/java/com/example/librarybook/bbouks.csv", true));
+        try (PrintWriter writer = new PrintWriter(new FileWriter("bbouks.csv", true))) {
             writer.println(livre.toCSVString());
-            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
-
         }
-        effacerChamps();
+
     }
 
-    // Méthode pour effacer les champs après l'ajout
-    private void effacerChamps() {
-        titreField.clear();
-        auteursField.clear();
-        genreField.clear();
-        anneeSortieField.clear();
-        disponibleSurAchatField.clear();
-        critiquesField.clear();
-        statutLectureField.clear();
-    }
+
 }
+
+
